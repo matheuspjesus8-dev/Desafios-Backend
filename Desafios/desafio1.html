@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+button {
+  padding: 15px;
+  margin: 10px;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+</style>
+</head>
+<body>
+
+<button id="btn1">Botão 1</button>
+<button id="btn2">Botão 2</button>
+<button id="btn3">Botão 3</button>
+
+<script>
+function animar(botao, cores) {
+  setTimeout(() => {
+    let i = 0;
+
+    botao.style.borderRadius = "15px";
+    botao.style.fontSize = "18px";
+
+    let intervalo = setInterval(() => {
+      botao.style.backgroundColor = cores[i];
+      i = (i + 1) % cores.length;
+    }, 500);
+
+    botao.onclick = () => clearInterval(intervalo);
+  }, 3000);
+}
+
+animar(btn1, ["red", "orange", "purple"]);
+animar(btn2, ["blue", "cyan", "green"]);
+animar(btn3, ["purple", "lime", "black"]);
+</script>
+
+</body>
+</html>
