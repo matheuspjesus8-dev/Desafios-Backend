@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<script>
+let semaforo = document.createElement("div");
+
+semaforo.style.background = "black";
+semaforo.style.height = "180px";
+semaforo.style.width = "70px";
+semaforo.style.padding = "10px";
+semaforo.style.borderRadius = "15px";
+document.body.appendChild(semaforo);
+
+function criarLuz(cor) {
+  let luz = document.createElement("div");
+
+  luz.style.background = cor;
+  luz.style.width = "50px";
+  luz.style.height = "50px";
+  luz.style.borderRadius = "50%";
+  luz.style.margin = "5px auto";
+  luz.style.opacity = "0.3";
+
+  semaforo.appendChild(luz);
+  return luz;
+}
+
+let vermelho = criarLuz("red");
+let amarelo = criarLuz("yellow");
+let verde = criarLuz("green");
+
+let i = 0;
+
+setInterval(() => {
+  vermelho.style.opacity = "0.3";
+  amarelo.style.opacity = "0.3";
+  verde.style.opacity = "0.3";
+
+  if (i == 0) vermelho.style.opacity = "1";
+  if (i == 1) amarelo.style.opacity = "1";
+  if (i == 2) verde.style.opacity = "1";
+
+  i = (i + 1) % 3;
+}, 2000);
+</script>
+
+</body>
+</html>
